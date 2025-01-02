@@ -1,4 +1,4 @@
-const targetDate = new Date('2025-01-26T00:00:00').getTime();
+const targetDate = new Date('2025-01-26T19:00:00').getTime();
 
 function updateFlipClock() {
     const now = new Date().getTime();
@@ -6,6 +6,7 @@ function updateFlipClock() {
 
     if (diff <= 0) {
         clearInterval(timer);
+        showMessage();  // Show message when the countdown ends
         return;
     }
 
@@ -38,6 +39,24 @@ function updateDigit(unitId, value) {
             wrapper.classList.remove('flipping');
         }, 500);
     }
+}
+
+function showMessage() {
+    // Hide the flip clock
+    const flipClock = document.querySelector('.flip-clock');
+    flipClock.style.display = 'none';
+
+    // Display a congratulatory message
+    const messageContainer = document.createElement('div');
+    messageContainer.style.textAlign = 'center';
+    messageContainer.style.fontSize = '20px';
+    messageContainer.style.color = 'blue';
+    messageContainer.style.fontWeight = 'bold';
+    messageContainer.innerHTML = `
+        <h3>SUBH ARAMBH!</h3>
+        <p>Bless us lifetime filled with joy, love, and happiness!</p>
+    `;
+    document.body.appendChild(messageContainer);
 }
 
 const timer = setInterval(updateFlipClock, 1000);
