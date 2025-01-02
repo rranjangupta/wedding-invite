@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | 26th Jan | Chkradharpur Jharkhand</title>
+    <style>
+        /* Resetting margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling with full gradient background */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f2a8d5, #f2d4a8); /* Full gradient background */
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Container styling with a subtle gradient at the top to blend into the background */
+        .container {
+            max-width: 750px;
+            padding: 40px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 1) 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.6) 100%); /* Soft gradient blending */
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Input field styling */
+        .invite-code {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            outline: none;
+            width: 80%;
+        }
+
+        .invite-code:focus {
+            border-color: #45a049;
+        }
+
+        /* Button styling */
+        .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Popup styling */
+        .popup {
+            background-color: rgba(255, 99, 71, 0.9);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup h2 {
+            color: white;
+        }
+
+        .popup p {
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* Builder image styling */
+        .builder-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover effect for the builder image */
+        .builder-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact button styling */
+        .contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: #25d366; /* WhatsApp green */
+            color: white;
+            box-shadow: 0 4px 15px rgba(49, 211, 37, 0.6);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        /* WhatsApp icon styling */
+        .contact img {
+            width: 22px;
+            margin-right: 10px;
+        }
+
+        /* Hover effect for the contact button */
+        .contact:hover {
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.8);
+            transform: translateY(-5px);
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Mobile responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .invite-code {
+                width: 90%;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <h1>Enter Your Invite Code</h1>
+    <p>Please enter your invite code to access the site:</p>
+
+    <!-- Invite Code Input -->
+    <input type="text" id="inviteCode" class="invite-code" placeholder="Enter invite code">
+    <br>
+    <button class="btn" onclick="validateInviteCode()">Submit</button>
+
+    <!-- Popup Message if Code is Incorrect -->
+    <div id="popupMessage" class="popup" style="display:none;">
+        <img src="https://images.fastcompany.com/image/upload/f_webp,c_fit,w_1920,q_auto/wp-cms/uploads/2017/08/p-1-clash-of-clans-builder.jpg"
+             alt="Builder at work"
+             class="builder-image">
+        <h2>Oops!</h2>
+        <p>Looks like you don't have the correct invite code.</p>
+        <a href="https://api.whatsapp.com/send?phone=+919124123747&text=Hi Raju, What's the invite code for your wedding website?"
+           class="contact"
+           target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+            Contact Raju on WhatsApp for the Code
+        </a>
+    </div>
+
+    <footer>© 2024 All Rights Reserved.</footer>
+</div>
+
+<script>
+    // Define the correct invite code
+    const correctInviteCode = 'raha'; // Change this to your actual invite code
+
+    // Function to validate the invite code either from the URL or input field
+    function validateInviteCode() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const inviteCodeFromURL = urlParams.get('invite');
+        const enteredCode = document.getElementById('inviteCode').value;
+
+        if (inviteCodeFromURL === correctInviteCode || enteredCode === correctInviteCode) {
+            // Redirect to event.html if the code is correct
+            window.location.href = 'event.html';
+        } else {
+            // Show the popup if the code is incorrect
+            document.getElementById('popupMessage').style.display = 'block';
+        }
+    }
+
+    // Trigger validation on page load if the invite code is already in the URL
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const inviteCodeFromURL = urlParams.get('invite');
+        if (inviteCodeFromURL === correctInviteCode) {
+            window.location.href = 'raju.html';
+        }
+    }
+</script>
+</body>
+</html>

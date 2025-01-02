@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Timeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Background Image */
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('./assets/img/bg1.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.9;
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin: 20px 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      color: white/* Solid orange color */
+    }
+
+
+    .timeline {
+      position: relative;
+      width: 80%;
+      margin: 50px auto;
+    }
+
+    .line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #ff6600, #ffcc00);
+      z-index: 0;
+      transform: translateX(-50%);
+    }
+
+    .event {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 50px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards;
+    }
+
+    .event.left {
+      justify-content: flex-end;
+      animation-delay: 0.3s;
+    }
+
+    .event.right {
+      justify-content: flex-start;
+      animation-delay: 0.6s;
+    }
+
+    .event-content {
+      position: relative;
+      max-width: 400px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event-content p {
+      margin: 0;
+      color: #666;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;  /* Centers the content horizontally */
+    }
+
+    .event-date {
+      color: darkslategray;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 5px;  /* Adds some spacing between the description and the date */
+    }
+
+
+    .event-content:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .event.left .event-content {
+      text-align: right;
+    }
+
+    .event.right .event-content {
+      text-align: left;
+    }
+
+    .event .icon {
+      position: absolute;
+      top: 50%;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #ff6600, #ffcc00);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transform: translateY(-50%);
+    }
+
+    .event.left .icon {
+      right: calc(50% + 20px);
+    }
+
+    .event.right .icon {
+      left: calc(50% + 20px);
+    }
+
+    .event-content h3 {
+      margin: 0 0 10px;
+      color: #ff6600;
+      font-size: 1.8em;
+    }
+
+    .event-content p {
+      margin: 0;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .event-content img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .event {
+        flex-direction: column;
+      }
+
+      .event.left .event-content,
+      .event.right .event-content {
+        text-align: center;
+      }
+
+      .event.left .icon,
+      .event.right .icon {
+        position: static;
+        margin-bottom: 20px;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Background Image -->
+<div class="background-image"></div>
+
+<h1>Wedding Timeline</h1>
+<div class="timeline">
+  <div class="line"></div>
+  <!-- Haldi Event -->
+  <div class="event left">
+    <div class="icon">🌼</div>
+    <div class="event-content">
+      <h3>Haldi</h3>
+      <p>Haldi ki holi 💛✨ #BrideToBe.
+        <span class="event-date">24th Jan 2025, 10 am</span>
+        <span class="event-date">At Bride's place</span>
+      </p>
+      <img src="assets/img/haldi.jpeg" alt="Haldi Ceremony">
+    </div>
+  </div>
+  <!-- Mehndi Event -->
+  <div class="event right">
+    <div class="icon">🌿</div>
+    <div class="event-content">
+      <h3>Mehndi</h3>
+      <p>💚 Mehandi ke Rang , Pyar ke Sang 💚#RaHa.
+        <span class="event-date">25th Jan 2025, 10 am</span>
+        <span class="event-date">At Bride's place</span><!-- The date is now in a separate span element -->
+      </p>
+      <img src="assets/img/mehandi.jpg" alt="Mehndi Ceremony">
+    </div>
+  </div>
+
+  <!-- Sangeet Event -->
+  <div class="event left">
+    <div class="icon">🎶</div>
+    <div class="event-content">
+      <h3>Sangeet</h3>
+      <p>🎷🎶 Ek Sham Dhun ke naam 🎶🎷
+        <span class="event-date">25th Jan 2025, 7 pm</span>
+        <span class="event-date">At Bride's place</span>
+      </p>
+      <img src="assets/img/sangeet.jpeg" alt="Sangeet Night">
+    </div>
+  </div>
+  <!-- Wedding Event -->
+  <div class="event right">
+    <div class="icon">🥁</div>
+    <div class="event-content">
+      <h3>Wedding</h3>
+      <p> 🙏 Shubh Arambh  🙏
+        <span class="event-date">26th Jan 2025, 7 pm</span>
+      </p>
+      <img src="assets/img/wedding.jpg" alt="Wedding Ceremony">
+    </div>
+  </div>
+</div>
+<div class="music">
+  <audio src="./assets/mp3/timeline.mp3" id="my_audio" loop="loop"></audio>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('my_audio');
+
+    // Function to play audio on page load (desktop autoplay)
+    const playAudio = () => {
+      audio.play().catch(error => {
+        console.log("Autoplay blocked. Waiting for user interaction...");
+      });
+    };
+
+    // Function to play audio after user interaction (mobile)
+    const enableAudio = () => {
+      audio.muted = false; // Unmute audio
+      audio.play().catch(error => console.error("Failed to play audio:", error));
+      document.body.removeEventListener('click', enableAudio); // Remove listener after enabling
+    };
+
+    // Try autoplay on desktop browsers
+    playAudio();
+
+    // Add event listener for mobile or desktop user interaction as a fallback
+    document.body.addEventListener('click', enableAudio);
+
+    // Also listen for touch events on mobile to ensure audio can play after touch
+    document.body.addEventListener('touchstart', enableAudio);
+  });
+</script>
+</body>
+</html>

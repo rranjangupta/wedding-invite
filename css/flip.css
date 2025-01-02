@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: lavender;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.flip-clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.separator {
+    font-size: 80px;
+    padding: 0 10px;
+    color: black;
+}
+.flip-clock .unit span {
+    color: black;      /* Sets the text color to black */
+    font-weight: bold; /* Makes the text bold */
+}
+.flip-clock .unit:nth-child(1) span, /* Targets Days */
+.flip-clock .unit:nth-child(2) span { /* Targets Hours */
+    color: black;
+    font-weight: bold;
+}
+
+.digit {
+    position: relative;
+    width: 80px;
+    height: 120px;
+    background-color: black;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 5px;
+}
+
+.digit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.digit::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.3);
+}
